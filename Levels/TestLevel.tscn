@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Interactables/Doors/Door.tscn" type="PackedScene" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Interactables/Hole/HoleGenerationZone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/TestLevel.gd" type="Script" id=5]
 [ext_resource path="res://Passengers/Passenger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Decors/Sea/SeaTexture.png" type="Texture" id=7]
+[ext_resource path="res://SeaTextureUnderwater.png" type="Texture" id=8]
+[ext_resource path="res://Decors/Boat/Boat.png" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -59,6 +62,7 @@ script = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1659.01, 949.832 )
+z_index = 10
 WALK_SPEED = 150
 
 [node name="Level" type="Node2D" parent="."]
@@ -138,6 +142,7 @@ position = Vector2( 1654.82, 624.553 )
 position = Vector2( 1398.61, 437.264 )
 
 [node name="Doors" type="Node2D" parent="Level"]
+z_index = 10
 __meta__ = {
 "_edit_lock_": true
 }
@@ -189,6 +194,7 @@ position = Vector2( 579.41, 441.108 )
 doorOutPath = NodePath("../LeftB")
 
 [node name="PassengerList" type="Node2D" parent="."]
+z_index = 10
 __meta__ = {
 "_edit_lock_": true
 }
@@ -223,72 +229,32 @@ position = Vector2( 839.218, 819.436 )
 [node name="Passenger10" parent="PassengerList" instance=ExtResource( 6 )]
 position = Vector2( 839.218, 819.436 )
 
-[node name="Passenger11" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger12" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger13" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger14" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger15" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger16" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger17" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger18" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger19" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger20" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger21" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger22" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger23" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger24" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger25" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger26" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger27" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger28" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger29" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
-[node name="Passenger30" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
-
 [node name="HoleCreator" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1071.18, 922.078 )
+z_index = 10
 sizeX = 450
 sizeY = 30
 
 [node name="Timer" type="Timer" parent="HoleCreator"]
 autostart = true
+
+[node name="SeaTexture" type="Sprite" parent="."]
+position = Vector2( 1002.71, 851.247 )
+scale = Vector2( 1, 0.0256549 )
+z_index = 1
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2500, 256 )
+
+[node name="SeaTextureUnderwater" type="Sprite" parent="."]
+process_priority = 1
+position = Vector2( 983.089, 982.626 )
+z_index = 10
+texture = ExtResource( 8 )
+
+[node name="Boat" type="Sprite" parent="."]
+position = Vector2( 976.256, 610.154 )
+scale = Vector2( 3.76231, 3.76231 )
+texture = ExtResource( 9 )
 
 [connection signal="timeout" from="HoleCreator/Timer" to="HoleCreator" method="_on_Timer_timeout"]
