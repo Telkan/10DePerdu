@@ -16,7 +16,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var currentPos = get_position()
-	currentPos.x += speed*delta
+	currentPos.x -= speed*delta
 	currentPos.y = posY + ondulation * cos((currentPos.x * 0.05))
 	set_position(currentPos)
 	pass

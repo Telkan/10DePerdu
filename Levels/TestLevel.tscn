@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Interactables/Doors/Door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MiscAsset/Tile.png" type="Texture" id=3]
+[ext_resource path="res://Interactables/Hole/HoleGenerationZone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/TestLevel.gd" type="Script" id=5]
 [ext_resource path="res://Passengers/Passenger.tscn" type="PackedScene" id=6]
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
 [sub_resource type="TileSet" id=2]
@@ -20,19 +21,19 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 5 )
+0/shape = SubResource( 1 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
 
-[sub_resource type="NavigationPolygon" id=6]
+[sub_resource type="NavigationPolygon" id=3]
 vertices = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
@@ -45,7 +46,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
-0/navigation = SubResource( 6 )
+0/navigation = SubResource( 3 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 0/shape_one_way = false
@@ -72,6 +73,7 @@ tile_data = PoolIntArray( 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0
 [node name="PassengerNav" type="Navigation2D" parent="Level" groups=[
 "Nav",
 ]]
+visible = false
 
 [node name="NavMap" type="TileMap" parent="Level/PassengerNav"]
 tile_set = SubResource( 4 )
@@ -265,3 +267,14 @@ position = Vector2( 839.218, 819.436 )
 
 [node name="Passenger30" parent="PassengerList" instance=ExtResource( 6 )]
 position = Vector2( 839.218, 819.436 )
+
+[node name="HoleCreator" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1071.18, 922.078 )
+sizeX = 450
+sizeY = 30
+
+[node name="Timer" type="Timer" parent="HoleCreator"]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="HoleCreator/Timer" to="HoleCreator" method="_on_Timer_timeout"]
