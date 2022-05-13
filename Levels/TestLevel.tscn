@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Interactables/Doors/Door.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Decors/Sea/SeaTexture.png" type="Texture" id=7]
 [ext_resource path="res://SeaTextureUnderwater.png" type="Texture" id=8]
 [ext_resource path="res://Decors/Boat/Boat.png" type="Texture" id=9]
+[ext_resource path="res://Decors/Boat/Rooms/Cargo.png" type="Texture" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -230,7 +231,7 @@ position = Vector2( 839.218, 819.436 )
 position = Vector2( 839.218, 819.436 )
 
 [node name="HoleCreator" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1071.18, 922.078 )
+position = Vector2( 1070.18, 922.078 )
 z_index = 10
 sizeX = 450
 sizeY = 30
@@ -256,5 +257,10 @@ texture = ExtResource( 8 )
 position = Vector2( 976.256, 610.154 )
 scale = Vector2( 3.76231, 3.76231 )
 texture = ExtResource( 9 )
+
+[node name="Cargo" type="Sprite" parent="."]
+position = Vector2( 384.213, 928.705 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 10 )
 
 [connection signal="timeout" from="HoleCreator/Timer" to="HoleCreator" method="_on_Timer_timeout"]
