@@ -83,6 +83,10 @@ func _physics_process(delta):
 				if hasABanana == false:
 					hasABanana = true
 					pickupTarget.take()
+			elif "Dead" in pickupTarget.name:
+				if canFixHole == false:
+					canFixHole = true
+					pickupTarget.take()
 
 	
 #---------<    CA PATCH DES HOLES PAR ICI    >---------
@@ -133,7 +137,8 @@ func _on_TrapDetection_area_exited(area):
 func _on_PickupDetection_area_entered(area):
 	canPickup = true
 	pickupTarget = area
-	$SpcPrompt.show()
+	if pickupTarget.empty == false:
+		$SpcPrompt.show()
 
 
 func _on_PickupDetection_area_exited(area):

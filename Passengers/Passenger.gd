@@ -46,6 +46,11 @@ func falling(delta):
 	if path.size() >= 1:
 		followPath(3*delta)
 	else:
+		var DeadBodies = load("res://Interactables/DeadBody/DeadBody.tscn")
+		var body = DeadBodies.instance()
+		body.name = "Dead"
+		body.set_position(get_position())
+		get_parent().add_child(body)
 		queue_free()
 
 func idleState(delta):
