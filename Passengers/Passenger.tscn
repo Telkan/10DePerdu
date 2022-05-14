@@ -35,6 +35,5 @@ shape = SubResource( 1 )
 position = Vector2( 0.525558, -14.085 )
 frames = SubResource( 2 )
 animation = "New Anim"
-frame = 1
 speed_scale = 0.5
 playing = true
