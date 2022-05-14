@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://MiscAsset/ExclamationPoint.png" type="Texture" id=3]
+[ext_resource path="res://Interactables/Trap/Banana/NoBanana.png" type="Texture" id=4]
+[ext_resource path="res://MiscAsset/Check.png" type="Texture" id=5]
+[ext_resource path="res://MiscAsset/SpcPrompt.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 20.1866 )
@@ -12,6 +15,9 @@ radius = 8.8454
 height = 12.2082
 
 [sub_resource type="Theme" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 19.1705 )
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.5, 0.5 )
@@ -51,5 +57,38 @@ position = Vector2( 1.0647, -54.5329 )
 scale = Vector2( 1.43868, 1.43868 )
 texture = ExtResource( 3 )
 
+[node name="TrapDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapDetection"]
+shape = SubResource( 4 )
+
+[node name="NoBanana" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0.707108, -52.3278 )
+texture = ExtResource( 4 )
+
+[node name="Okay" type="Sprite" parent="."]
+visible = false
+position = Vector2( -1.06065, -49.4975 )
+texture = ExtResource( 5 )
+
+[node name="PickupDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupDetection"]
+shape = SubResource( 4 )
+
+[node name="SpcPrompt" type="Sprite" parent="."]
+visible = false
+position = Vector2( -0.785271, -50.7956 )
+texture = ExtResource( 6 )
+
 [connection signal="area_entered" from="HoleDetection" to="." method="_on_HoleDetection_area_entered"]
 [connection signal="area_exited" from="HoleDetection" to="." method="_on_HoleDetection_area_exited"]
+[connection signal="area_entered" from="TrapDetection" to="." method="_on_TrapDetection_area_entered"]
+[connection signal="area_exited" from="TrapDetection" to="." method="_on_TrapDetection_area_exited"]
+[connection signal="area_entered" from="PickupDetection" to="." method="_on_PickupDetection_area_entered"]
+[connection signal="area_exited" from="PickupDetection" to="." method="_on_PickupDetection_area_exited"]

@@ -4,7 +4,7 @@ extends Area2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var activated = true
+var activated = false
 
 export(NodePath) var fallingPathNode
 onready var fallingPath = get_node(fallingPathNode) 
@@ -13,7 +13,9 @@ onready var fallingPath = get_node(fallingPathNode)
 func _ready():
 	pass # Replace with function body.
 
-
+func setTrap():
+	activated = true
+	$BananaSprite.show()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

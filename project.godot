@@ -28,6 +28,12 @@ window/stretch/mode="2d"
 
 stretch=false
 
+[importer_defaults]
+
+texture={
+"flags/filter": false
+}
+
 [layer_names]
 
 2d_physics/layer_1="Environment"
@@ -36,6 +42,7 @@ stretch=false
 2d_physics/layer_4="THAT FUCKING ROCK"
 2d_physics/layer_5="Passengers"
 2d_physics/layer_6="Traps"
+2d_physics/layer_7="Pickup"
 
 [physics]
 
