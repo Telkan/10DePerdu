@@ -51,6 +51,7 @@ func falling(delta):
 		body.name = "Dead"
 		body.set_position(get_position())
 		get_parent().add_child(body)
+		Globals.Pognon += 20
 		queue_free()
 
 func idleState(delta):

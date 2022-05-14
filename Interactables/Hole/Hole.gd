@@ -19,15 +19,22 @@ func _ready():
 #func _process(delta):
 #	pass
 func suicide():
+	Globals.nbOfHoles -= 1
+	var FixedHoles = load("res://Interactables/Hole/FixedHole.tscn")
+	var FixedHole = FixedHoles.instance()
+	FixedHole.set_position(get_position())
+	get_parent().add_child(FixedHole)
 	queue_free()
 
 func _on_Area2D_area_entered(area):
-	#TODO Shake caméra & all
-	$Sprite.show()
-	$SoundEffect.play()
-	$Sprite/Splinters.set_emitting(true)
-	accessible = true
-	pass # Replace with function body.
+	if accessible == false:
+		Globals.nbOfHoles += 1
+		#TODO Shake caméra & all
+		$Sprite.show()
+		$SoundEffect.play()
+		$Sprite/Splinters.set_emitting(true)
+		accessible = true
+		pass # Replace with function body.
 
 
 func _on_PlayerDetect_area_entered(area):

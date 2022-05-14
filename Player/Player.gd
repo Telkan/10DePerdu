@@ -16,6 +16,8 @@ var actionTarget
 var canPickup = false
 var pickupTarget
 
+var canUnscrewBarrier = false
+
 var velocity = Vector2()
 
 #---------<    TRAVERSE DOOR    >---------
@@ -85,13 +87,16 @@ func _physics_process(delta):
 	if canPickup == true:
 		if Input.is_action_pressed("ui_select"):
 			if "Banana" in pickupTarget.name:
-				if hasABanana == false:
+				if hasABanana == false and pickupTarget.empty == false:
 					hasABanana = true
 					pickupTarget.take()
 			elif "Dead" in pickupTarget.name:
 				if canFixHole == false:
 					canFixHole = true
 					pickupTarget.take()
+			elif "Vendeur" in pickupTarget.name:
+				canUnscrewBarrier = true
+				pickupTarget.take()
 
 	
 #---------<    CA PATCH DES HOLES PAR ICI    >---------
@@ -142,11 +147,17 @@ func _on_TrapDetection_area_exited(area):
 func _on_PickupDetection_area_entered(area):
 	canPickup = true
 	pickupTarget = area
-	if pickupTarget.empty == false:
-		$SpcPrompt.show()
+	if "Vendeur" in pickupTarget.name:
+		pickupTarget.showStuff()
+	else: 
+		if pickupTarget.empty == false:
+			$SpcPrompt.show()
 
 
 func _on_PickupDetection_area_exited(area):
 	canPickup = false
-	$SpcPrompt.hide()
+	if "Vendeur" in pickupTarget.name:
+		pickupTarget.hideStuff()
+	else: 
+		$SpcPrompt.hide()
 	pass # Replace with function body.

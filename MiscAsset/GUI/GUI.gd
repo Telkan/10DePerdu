@@ -23,4 +23,6 @@ func _process(delta):
 	else:
 		$Dead.hide()	
 		
+	$Money.text = str(Globals.Pognon)+ "$"
+		
 	pass
