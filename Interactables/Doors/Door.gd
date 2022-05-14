@@ -20,6 +20,7 @@ func _ready():
 
 func _on_Player_Entered(body):
 	$Arrow.show()
+	print("enTheorie on est là cest cool")
 	body.approachDoor(doorOut.get_position())
 	pass # Replace with function body.
 

@@ -27,4 +27,5 @@ func _on_Banana_area_entered(area):
 		victim.fall(fallingPath.get_curve(), get_position())
 		activated = false
 		$BananaSprite.hide()
+		fallingPath = get_node(fallingPathNode) 
 	pass # Replace with function body.

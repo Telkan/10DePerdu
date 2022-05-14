@@ -88,9 +88,9 @@ z_index = 10
 WALK_SPEED = 150
 
 [node name="Level" type="Node2D" parent="."]
-visible = false
 
 [node name="ShipMap" type="TileMap" parent="Level"]
+visible = false
 tile_set = SubResource( 2 )
 cell_size = Vector2( 32, 32 )
 show_collision = true
@@ -318,11 +318,7 @@ position = Vector2( 571.172, 619.992 )
 fallingPathNode = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Banana"]
-visible = false
 curve = SubResource( 5 )
-
-[node name="Banana" parent="Banana/Path2D" instance=ExtResource( 15 )]
-position = Vector2( 215.217, -15.4615 )
 
 [node name="Banana2" parent="." instance=ExtResource( 14 )]
 position = Vector2( 571.172, 429.11 )
@@ -341,9 +337,6 @@ visible = false
 curve = SubResource( 7 )
 
 [node name="PickupBanana" parent="." instance=ExtResource( 15 )]
-position = Vector2( 785.595, 608.499 )
-
-[node name="PickupBanana2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1102.74, 607.555 )
 
 [connection signal="timeout" from="HoleCreator/Timer" to="HoleCreator" method="_on_Timer_timeout"]

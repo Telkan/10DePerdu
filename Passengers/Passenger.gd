@@ -41,6 +41,8 @@ func movingState(delta):
 		currentState = Globals.State.IDLING
 
 func falling(delta):
+	print("aaaaaaaa")
+	print(get_position())
 	if path.size() >= 1:
 		followPath(3*delta)
 	else:
@@ -68,9 +70,10 @@ func stopWaiting():
 	
 func fall(fallpath, posTrap):
 	path = []
-	while(fallpath.get_point_count() > 0):
-		path.append(fallpath.get_point_position(0) + posTrap)
-		fallpath.remove_point(0)
+	var i = 0
+	while(i< fallpath.get_point_count()):
+		path.append(fallpath.get_point_position(i) + posTrap)
+		i+=1
 		
 	currentState = Globals.State.FALLING
 	pass

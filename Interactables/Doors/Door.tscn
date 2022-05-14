@@ -20,6 +20,7 @@ shape = SubResource( 1 )
 visible = false
 position = Vector2( 0.0436058, -35.7914 )
 scale = Vector2( 0.594948, 0.594948 )
+z_index = 10
 texture = ExtResource( 2 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Player_Entered"]
