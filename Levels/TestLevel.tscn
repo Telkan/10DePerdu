@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Interactables/Doors/Door.tscn" type="PackedScene" id=2]
@@ -20,6 +20,9 @@
 [ext_resource path="res://MiscAsset/GUI/BananaPossessed.png" type="Texture" id=18]
 [ext_resource path="res://Sounds/Non jai pas pris le theme de wind waker quest ce qui te fait dire ca.mp3" type="AudioStream" id=19]
 [ext_resource path="res://MiscAsset/Square.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://Interactables/Vendeur/Vendeur.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Sounds/MortBateau.wav" type="AudioStream" id=22]
+[ext_resource path="res://MiscAsset/GUI/Alert Hole.png" type="Texture" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -88,6 +91,25 @@ size = 64
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 20 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 500, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 0.68
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 952.1
+angle_random = 1.0
+scale = 97.17
+scale_random = 1.0
+color = Color( 0.180392, 0.168627, 0.168627, 1 )
+hue_variation = -0.01
+hue_variation_random = 1.0
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 5 )
@@ -238,37 +260,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SeaTexture" type="Sprite" parent="Level/Background"]
-z_index = 1
-texture = ExtResource( 7 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 2500, 256 )
-
-[node name="SeaTextureUnderwater" type="Sprite" parent="Level/Background"]
-process_priority = 1
-position = Vector2( -19.621, 5121.01 )
-scale = Vector2( 1, 38.9789 )
-z_index = 10
-texture = ExtResource( 8 )
-
-[node name="Boat" type="Sprite" parent="Level/Background"]
-visible = false
-position = Vector2( -12.5764, -7845.8 )
-scale = Vector2( 6.96523, 281.47 )
-texture = ExtResource( 9 )
-
-[node name="Sky" type="Sprite" parent="Level/Background"]
-position = Vector2( 827.117, -21894.7 )
-scale = Vector2( 7.58585, 252.619 )
-texture = ExtResource( 13 )
-offset = Vector2( -113.817, -14.2107 )
-
-[node name="Sky2" type="Sprite" parent="Level/Background"]
-position = Vector2( 821.231, -5349.89 )
-scale = Vector2( 7.58585, 292.27 )
-texture = ExtResource( 13 )
-offset = Vector2( -113.817, -14.2107 )
-
 [node name="Underwater" type="Sprite" parent="Level/Background"]
 position = Vector2( 729.379, 3354.27 )
 scale = Vector2( 1.5, 58.4684 )
@@ -390,9 +381,86 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AlertHole" type="Sprite" parent="GUI"]
+position = Vector2( 1882.64, 280.243 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 23 )
+
+[node name="MortBateau" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = 7.429
+
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
 volume_db = -11.0
 autoplay = true
+
+[node name="DeadParticles" type="Particles2D" parent="."]
+position = Vector2( 861.786, 617.361 )
+z_index = 998
+emitting = false
+amount = 1000
+lifetime = 5.97
+one_shot = true
+speed_scale = 2.03
+explosiveness = 1.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+process_material = SubResource( 9 )
+
+[node name="Vendeur" type="Node2D" parent="."]
+position = Vector2( 1707.17, 599.492 )
+
+[node name="Vendeur" parent="Vendeur" instance=ExtResource( 21 )]
+
+[node name="SeaTexture" type="Sprite" parent="."]
+position = Vector2( 1002.71, 851.247 )
+scale = Vector2( 1, 0.0256549 )
+z_index = -4
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2500, 256 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SeaTextureUnderwater" type="Sprite" parent="."]
+process_priority = 1
+position = Vector2( 983.089, 982.626 )
+scale = Vector2( 1, 1 )
+z_index = 67
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Boat" type="Sprite" parent="."]
+visible = false
+position = Vector2( 990.134, 649.964 )
+scale = Vector2( 6.96523, 7.22109 )
+z_index = -4
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sky" type="Sprite" parent="."]
+position = Vector2( 1829.83, 289.541 )
+scale = Vector2( 7.58585, 6.48092 )
+z_index = -4
+texture = ExtResource( 13 )
+offset = Vector2( -113.817, -14.2107 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sky2" type="Sprite" parent="."]
+position = Vector2( 1823.94, 713.996 )
+scale = Vector2( 7.58585, 7.49816 )
+z_index = -4
+texture = ExtResource( 13 )
+offset = Vector2( -113.817, -14.2107 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="timeout" from="HoleCreator/Timer" to="HoleCreator" method="_on_Timer_timeout"]

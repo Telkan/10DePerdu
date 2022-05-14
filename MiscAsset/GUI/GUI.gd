@@ -13,15 +13,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if get_parent().find_node("Player").hasABanana == true:
+	if Globals.hasABanana == true:
 		$Banana.show()
 	else:
 		$Banana.hide()
 	
-	if get_parent().find_node("Player").canFixHole == true:
+	if Globals.canFixHole == true:
 		$Dead.show()
 	else:
 		$Dead.hide()	
+		
+	if Globals.nbOfHoles == 4:
+		$AlertHole.show()
+	else:
+		$AlertHole.hide()
 		
 	$Money.text = str(Globals.Pognon)+ "$"
 		

@@ -41,8 +41,6 @@ func movingState(delta):
 		currentState = Globals.State.IDLING
 
 func falling(delta):
-	print("aaaaaaaa")
-	print(get_position())
 	if path.size() >= 1:
 		followPath(3*delta)
 	else:

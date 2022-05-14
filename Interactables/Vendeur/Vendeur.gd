@@ -11,6 +11,8 @@ func take():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if Globals.canUnscrewBarrier == true:
+		queue_free()
 	pass # Replace with function body.
 
 func showStuff():
