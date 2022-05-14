@@ -87,7 +87,11 @@ func fall(fallpath, posTrap):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
+	if currentState != Globals.State.FALLING:
+		if $Sprite.frame == 0:
+			set_rotation(deg2rad(-15))
+		else:
+			set_rotation(deg2rad(15))
 	if currentState == Globals.State.MOVING:
 		movingState(delta)
 	elif currentState == Globals.State.IDLING:
