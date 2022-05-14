@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Interactables/Trap/Banana/NoBanana.png" type="Texture" id=4]
 [ext_resource path="res://MiscAsset/Check.png" type="Texture" id=5]
 [ext_resource path="res://MiscAsset/SpcPrompt.png" type="Texture" id=6]
+[ext_resource path="res://Sounds/Hammer.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 20.1866 )
@@ -85,6 +86,10 @@ shape = SubResource( 4 )
 visible = false
 position = Vector2( -0.785271, -50.7956 )
 texture = ExtResource( 6 )
+
+[node name="HammerSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 5.0
 
 [connection signal="area_entered" from="HoleDetection" to="." method="_on_HoleDetection_area_entered"]
 [connection signal="area_exited" from="HoleDetection" to="." method="_on_HoleDetection_area_exited"]

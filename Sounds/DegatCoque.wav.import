@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/DegatCoque.wav-7729db3e00b19554a0ab5acca5ddb172.sample"
+
+[deps]
+
+source_file="res://Sounds/DegatCoque.wav"
+dest_files=[ "res://.import/DegatCoque.wav-7729db3e00b19554a0ab5acca5ddb172.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

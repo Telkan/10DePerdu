@@ -60,6 +60,7 @@ func _physics_process(delta):
 	#Fix Hole
 	if isNearHole and canFixHole and Input.is_action_pressed("ui_select"):
 		if holeToPatch.accessible == true:
+			$HammerSound.play()
 			holeToPatch.fixPercent += FIX_SPEED * delta
 			$FixBar.value = holeToPatch.fixPercent
 			if  holeToPatch.fixPercent >= 100:

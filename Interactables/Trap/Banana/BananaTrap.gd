@@ -24,6 +24,7 @@ func setTrap():
 func _on_Banana_area_entered(area):
 	var victim = area.get_parent()
 	if victim.currentState != Globals.State.FALLING and activated == true:
+		$SoundEffect.play()
 		victim.fall(fallingPath.get_curve(), get_position())
 		activated = false
 		$BananaSprite.hide()

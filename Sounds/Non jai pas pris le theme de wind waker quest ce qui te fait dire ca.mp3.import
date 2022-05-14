@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Non jai pas pris le theme de wind waker quest ce qui te fait dire ca.mp3-e75c56e64b842bea6f142ec4c2d0fe44.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Non jai pas pris le theme de wind waker quest ce qui te fait dire ca.mp3"
+dest_files=[ "res://.import/Non jai pas pris le theme de wind waker quest ce qui te fait dire ca.mp3-e75c56e64b842bea6f142ec4c2d0fe44.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

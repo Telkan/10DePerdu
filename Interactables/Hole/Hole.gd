@@ -24,6 +24,7 @@ func suicide():
 func _on_Area2D_area_entered(area):
 	#TODO Shake caméra & all
 	$Sprite.show()
+	$SoundEffect.play()
 	$Sprite/Splinters.set_emitting(true)
 	accessible = true
 	pass # Replace with function body.
