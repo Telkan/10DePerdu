@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Interactables/Doors/Door.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Decors/Boat/Rooms/Top.png" type="Texture" id=11]
 [ext_resource path="res://Decors/Boat/Rooms/Top2.png" type="Texture" id=12]
 [ext_resource path="res://Decors/Sky.png" type="Texture" id=13]
+[ext_resource path="res://Interactables/Trap/Banana/BananaTrap.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -60,6 +61,11 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -1.13525, -0.526184, 0, 0, 0, 0, -3.80493, -21.2162, 0, 0, 0, 0, -6.14093, -43.5748, 0, 0, 0, 0, -9.47803, -59.2592, 0, 0, 0, 0, -14.4836, -67.6019, 0, 0, 0, 0, -18.4882, -67.6019, 0, 0, 0, 0, -22.4927, -62.2626, 0, 0, 0, 0, -25.8298, -53.9198, 0, 0, 0, 0, -25.1624, -42.9074, 0, 0, 0, 0, -27.4984, -30.2264, 0, 0, 0, 0, -28.1658, -21.5499, 0, 0, 0, 0, -28.4995, -11.5386, 0, 0, 0, 0, -28.1658, -0.859924, 0, 0, 0, 0, -30.168, 14.4907, 0, 0, 0, 0, -30.168, 23.8346, 0, 0, 0, 0, -30.168, 32.511, 0, 0, 0, 0, -30.8354, 44.1911, 0, 0, 0, 0, -30.8354, 55.8709, 0, 0, 0, 0, -31.1692, 63.5463, 0, 0, 0, 0, -30.168, 74.8924, 0, 0, 0, 0, -29.1669, 86.2385, 0, 0, 0, 0, -29.1669, 90.243, 0, 0, 0, 0, -30.5017, 95.5824, 0, 0, 0, 0, -31.5029, 97.5847, 0, 0, 0, 0, -30.168, 95.9161, 0, 0, 0, 0, -34.1725, 80.5655, 0, 0, 0, 0, -35.5074, 70.8879, 0, 0, 0, 0, -37.1759, 60.2092, 0, 0, 0, 0, -38.1771, 47.1945, 0, 0, 0, 0, -39.1782, 35.1809, 0, 0, 0, 0, -39.8456, 25.1696, 0, 0, 0, 0, -42.849, 17.1606, 0, 0, 0, 0, -46.1861, 8.48413, 0, 0, 0, 0, -51.1918, 6.14813, 0, 0, 0, 0, -60.8693, 7.48297, 0, 0, 0, 0, -69.2121, 13.4897, 0, 0, 0, 0, -73.5503, 23.501, 0, 0, 0, 0, -73.2166, 36.1821, 0, 0, 0, 0, -71.8818, 47.1945, 0, 0, 0, 0, -70.2132, 55.2035, 0, 0, 0, 0, -69.2121, 63.5463, 0, 0, 0, 0, -68.5447, 73.2238, 0, 0, 0, 0, -68.5447, 81.2329, 0, 0, 0, 0, -68.211, 86.5723, 0, 0, 0, 0, -68.211, 94.5813, 0, 0, 0, 0, -69.5458, 104.926, 0, 0, 0, 0, -71.5481, 112.935, 0, 0, 0, 0, -72.5492, 122.279, 0, 0, 0, 0, -72.5492, 124.281, 0, 0, 0, 0, -72.5492, 129.287, 0, 0, 0, 0, -72.8829, 135.294, 0, 0, 0, 0, -72.5492, 138.965, 0, 0, 0, 0, -72.5492, 142.969, 0, 0, 0, 0, -72.8829, 141.634, 0, 0, 0, 0, -73.5503, 121.612, 0, 0, 0, 0, -76.22, 106.595, 0, 0, 0, 0, -79.2234, 95.2487, 0, 0, 0, 0, -83.2279, 76.8947, 0, 0, 0, 0, -83.5616, 67.2171, 0, 0, 0, 0, -85.8976, 66.8834, 0, 0, 0, 0, -92.5718, 63.5463, 0, 0, 0, 0, -95.5752, 63.2125, 0, 0, 0, 0, -101.248, 65.8822, 0, 0, 0, 0, -105.586, 72.2227, 0, 0, 0, 0, -107.255, 77.2283, 0, 0, 0, 0, -110.592, 87.9071, 0, 0, 0, 0, -111.593, 99.9207, 0, 0, 0, 0, -112.261, 109.265, 0, 0, 0, 0, -112.594, 120.277, 0, 0, 0, 0, -112.261, 134.293, 0, 0, 0, 0, -114.597, 147.641, 0, 0, 0, 0, -115.264, 151.979, 0, 0, 0, 0, -117.934, 166.329, 0, 0, 0, 0, -118.935, 172.002, 0, 0, 0, 0, -119.602, 177.008, 0, 0, 0, 0, -120.27, 182.013, 0, 0, 0, 0, -120.603, 183.682, 0, 0, 0, 0, -120.603, 187.686, 0, 0, 0, 0, -120.603, 187.686 )
+}
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 5 )
@@ -197,7 +203,8 @@ position = Vector2( 465.887, 629.413 )
 doorOutPath = NodePath("../LeftH")
 
 [node name="LeftH" parent="Level/Doors/2To3" instance=ExtResource( 2 )]
-position = Vector2( 598.492, 441.669 )
+position = Vector2( 664.968, 448.381 )
+z_index = 22
 doorOutPath = NodePath("../LeftB")
 
 [node name="PassengerList" type="Node2D" parent="."]
@@ -234,7 +241,7 @@ position = Vector2( 839.218, 819.436 )
 position = Vector2( 839.218, 819.436 )
 
 [node name="Passenger10" parent="PassengerList" instance=ExtResource( 6 )]
-position = Vector2( 839.218, 819.436 )
+position = Vector2( 550.567, 812.309 )
 
 [node name="HoleCreator" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1070.18, 922.078 )
@@ -248,6 +255,9 @@ autostart = true
 [node name="Background" type="Node2D" parent="."]
 position = Vector2( 1002.71, 851.247 )
 scale = Vector2( 1, 0.0256549 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="SeaTexture" type="Sprite" parent="Background"]
 z_index = 1
@@ -290,5 +300,19 @@ texture = ExtResource( 10 )
 position = Vector2( -41.303, 2535.31 )
 scale = Vector2( 2.51315, 100.869 )
 texture = ExtResource( 11 )
+
+[node name="Banana" parent="." instance=ExtResource( 14 )]
+position = Vector2( 571.172, 619.992 )
+fallingPathNode = NodePath("Path2D")
+
+[node name="Path2D" type="Path2D" parent="Banana"]
+curve = SubResource( 5 )
+
+[node name="Banana2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 571.172, 429.11 )
+fallingPathNode = NodePath("Path2D")
+
+[node name="Path2D" type="Path2D" parent="Banana2"]
+curve = SubResource( 5 )
 
 [connection signal="timeout" from="HoleCreator/Timer" to="HoleCreator" method="_on_Timer_timeout"]

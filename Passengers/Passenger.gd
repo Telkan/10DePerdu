@@ -8,15 +8,13 @@ var goal = Vector2()
 var rng = RandomNumberGenerator.new()
 onready var Nav = get_tree().get_nodes_in_group("Nav")[0]
 
-export(Array,NodePath) var ListOfRooms
 
-enum State {MOVING, IDLING, WAITING}
-var currentState = State.MOVING
+
+var currentState = Globals.State.MOVING
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
 	chooseRandomNextMove()
-	
 	pass # Replace with function body.
 
 
@@ -26,7 +24,6 @@ func setGoal(targetPosition):
 
 func followPath(delta):
 	var d = get_position().distance_to(path[0])
-	
 	if d > 2:
 		set_position(get_position().linear_interpolate(path[0], (speed * delta)/d ))
 	else:
@@ -41,35 +38,57 @@ func movingState(delta):
 	if path.size() >= 1:
 		followPath(delta)
 	else:
-		currentState = State.IDLING
+		currentState = Globals.State.IDLING
+
+func falling(delta):
+	if path.size() >= 1:
+		followPath(3*delta)
+	else:
+		queue_free()
 
 func idleState(delta):
 	#Decide to move
 	if rng.randf() >0.9:
 		chooseRandomNextMove()
-		currentState = State.MOVING
+		currentState = Globals.State.MOVING
 	#Small Idle Movement
 	elif rng.randf() > 0.5:
 		var currentPos = get_position()
 		currentPos.x += rng.randi_range(-30,30)
 		setGoal(currentPos)
-		currentState = State.MOVING
+		currentState = Globals.State.MOVING
 	#Static for a while
 	else:
 		get_tree().create_timer(rng.randf_range(0,2)).connect("timeout", self, "stopWaiting")
-		currentState = State.WAITING
+		currentState = Globals.State.WAITING
 
 
 func stopWaiting():
-	currentState = State.IDLING
+	currentState = Globals.State.IDLING
+	
+func fall(fallpath, posTrap):
+	path = []
+	while(fallpath.get_point_count() > 0):
+		path.append(fallpath.get_point_position(0) + posTrap)
+		fallpath.remove_point(0)
+		
+	currentState = Globals.State.FALLING
+	pass
+	
 
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if currentState == State.MOVING:
+
+	if currentState == Globals.State.MOVING:
 		movingState(delta)
-	elif currentState == State.IDLING:
+	elif currentState == Globals.State.IDLING:
 		idleState(delta)
-	elif currentState == State.WAITING:
+	elif currentState == Globals.State.WAITING:
 		pass
+	elif currentState == Globals.State.FALLING:
+		falling(delta)
+		self.rotation += 5 * delta
+		
 	else:
-		currentState = State.IDLING 
+		currentState = Globals.State.IDLING 

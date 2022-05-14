@@ -14,6 +14,10 @@ config/name="ShipGame"
 run/main_scene="res://Levels/TestLevel.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Globals.gd"
+
 [display]
 
 window/size/width=1920
@@ -28,8 +32,10 @@ stretch=false
 
 2d_physics/layer_1="Environment"
 2d_physics/layer_2="Player"
-2d_physics/layer_3="Interactible"
+2d_physics/layer_3="Holes"
 2d_physics/layer_4="THAT FUCKING ROCK"
+2d_physics/layer_5="Passengers"
+2d_physics/layer_6="Traps"
 
 [physics]
 
