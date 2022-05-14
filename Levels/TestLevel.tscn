@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Interactables/Doors/Door.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Decors/Boat/Rooms/Underwater.png" type="Texture" id=10]
 [ext_resource path="res://Decors/Boat/Rooms/Top.png" type="Texture" id=11]
 [ext_resource path="res://Decors/Boat/Rooms/Top2.png" type="Texture" id=12]
+[ext_resource path="res://Decors/Sky.png" type="Texture" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -156,19 +157,19 @@ __meta__ = {
 [node name="MachineAccess" type="Node2D" parent="Level/Doors"]
 
 [node name="LMB" parent="Level/Doors/MachineAccess" instance=ExtResource( 2 )]
-position = Vector2( 617.041, 952.862 )
+position = Vector2( 622.714, 951.861 )
 doorOutPath = NodePath("../LMH")
 
 [node name="LMH" parent="Level/Doors/MachineAccess" instance=ExtResource( 2 )]
-position = Vector2( 575.589, 825.197 )
+position = Vector2( 563.909, 822.194 )
 doorOutPath = NodePath("../LMB")
 
 [node name="RMH" parent="Level/Doors/MachineAccess" instance=ExtResource( 2 )]
-position = Vector2( 1341.52, 824.91 )
+position = Vector2( 1362.29, 823.022 )
 doorOutPath = NodePath("../RMB")
 
 [node name="RMB" parent="Level/Doors/MachineAccess" instance=ExtResource( 2 )]
-position = Vector2( 1488.23, 951.405 )
+position = Vector2( 1492.95, 951.405 )
 doorOutPath = NodePath("../RMH")
 
 [node name="1To2" type="Node2D" parent="Level/Doors"]
@@ -192,11 +193,11 @@ doorOutPath = NodePath("../RightB")
 [node name="2To3" type="Node2D" parent="Level/Doors"]
 
 [node name="LeftB" parent="Level/Doors/2To3" instance=ExtResource( 2 )]
-position = Vector2( 475.428, 633.903 )
+position = Vector2( 465.887, 629.413 )
 doorOutPath = NodePath("../LeftH")
 
 [node name="LeftH" parent="Level/Doors/2To3" instance=ExtResource( 2 )]
-position = Vector2( 579.41, 441.108 )
+position = Vector2( 598.492, 441.669 )
 doorOutPath = NodePath("../LeftB")
 
 [node name="PassengerList" type="Node2D" parent="."]
@@ -244,50 +245,50 @@ sizeY = 30
 [node name="Timer" type="Timer" parent="HoleCreator"]
 autostart = true
 
-[node name="SeaTexture" type="Sprite" parent="."]
+[node name="Background" type="Node2D" parent="."]
 position = Vector2( 1002.71, 851.247 )
 scale = Vector2( 1, 0.0256549 )
+
+[node name="SeaTexture" type="Sprite" parent="Background"]
 z_index = 1
 texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2500, 256 )
 
-[node name="SeaTextureUnderwater" type="Sprite" parent="."]
+[node name="SeaTextureUnderwater" type="Sprite" parent="Background"]
 process_priority = 1
-position = Vector2( 983.089, 982.626 )
+position = Vector2( -19.621, 5121.01 )
+scale = Vector2( 1, 38.9789 )
 z_index = 10
 texture = ExtResource( 8 )
 
-[node name="Boat" type="Sprite" parent="."]
+[node name="Boat" type="Sprite" parent="Background"]
 visible = false
-position = Vector2( 990.134, 649.964 )
-scale = Vector2( 6.96523, 7.22108 )
+position = Vector2( -12.5764, -7845.8 )
+scale = Vector2( 6.96523, 281.47 )
 texture = ExtResource( 9 )
 
-[node name="Underwater" type="Sprite" parent="."]
-position = Vector2( 1732.09, 937.301 )
-scale = Vector2( 1.5, 1.5 )
+[node name="Sky" type="Sprite" parent="Background"]
+position = Vector2( 827.117, -21894.7 )
+scale = Vector2( 7.58585, 252.619 )
+texture = ExtResource( 13 )
+offset = Vector2( -113.817, -14.2107 )
+
+[node name="Sky2" type="Sprite" parent="Background"]
+position = Vector2( 821.231, -5349.89 )
+scale = Vector2( 7.58585, 292.27 )
+texture = ExtResource( 13 )
+offset = Vector2( -113.817, -14.2107 )
+
+[node name="Underwater" type="Sprite" parent="Background"]
+position = Vector2( 729.379, 3354.27 )
+scale = Vector2( 1.5, 58.4684 )
 z_index = 1
 texture = ExtResource( 10 )
 
-[node name="Cargo" type="Sprite" parent="."]
-visible = false
-position = Vector2( 1728.02, 928.776 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 10 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Top" type="Sprite" parent="."]
-position = Vector2( 961.407, 916.29 )
-scale = Vector2( 2.51315, 2.58777 )
+[node name="Top" type="Sprite" parent="Background"]
+position = Vector2( -41.303, 2535.31 )
+scale = Vector2( 2.51315, 100.869 )
 texture = ExtResource( 11 )
-
-[node name="Top2" type="Sprite" parent="."]
-visible = false
-position = Vector2( 966.535, 551.658 )
-scale = Vector2( 2.50827, 2.52393 )
-texture = ExtResource( 12 )
 
 [connection signal="timeout" from="HoleCreator/Timer" to="HoleCreator" method="_on_Timer_timeout"]

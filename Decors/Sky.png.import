@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Underwater.png-5f7e167a84feaa871952f118b4ed86a4.stex"
+path="res://.import/Sky.png-ba24cbdcf8197c21399a8a9cfa069cfb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Decors/Boat/Rooms/Underwater.png"
-dest_files=[ "res://.import/Underwater.png-5f7e167a84feaa871952f118b4ed86a4.stex" ]
+source_file="res://Decors/Sky.png"
+dest_files=[ "res://.import/Sky.png-ba24cbdcf8197c21399a8a9cfa069cfb.stex" ]
 
 [params]
 
