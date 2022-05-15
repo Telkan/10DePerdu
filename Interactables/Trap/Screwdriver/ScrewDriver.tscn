@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Interactables/Trap/Screwdriver/ScrewDriver.gd" type="Script" id=1]
+[ext_resource path="res://Interactables/Trap/Screwdriver/Screwdriver.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Screwdriver" type="Area2D"]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

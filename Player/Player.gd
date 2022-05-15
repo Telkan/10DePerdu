@@ -81,7 +81,13 @@ func _physics_process(delta):
 				if Input.is_action_pressed("ui_select"):
 					actionTarget.setTrap()
 					Globals.hasABanana = false
-					$Okay.hide()
+					get_tree().call_group("Prompts","hide")
+		if "Screwdriver" in actionTarget.name:
+			if Globals.hasScrewdriver == true:
+				if Input.is_action_pressed("ui_select"):
+					actionTarget.setTrap()
+					Globals.hasScrewdriver = false
+					get_tree().call_group("Prompts","hide")
 					
 	#Pickup shit
 	if canPickup == true:
@@ -98,6 +104,10 @@ func _physics_process(delta):
 				Globals.canUnscrewBarrier = true
 				pickupTarget.take()
 				Globals.Pognon -= 40
+				get_parent().find_node("ScrewdriverTrap").find_node("Screwdriver").setup()
+			elif "Screwdriver" in pickupTarget.name  and pickupTarget.empty == false:
+				Globals.hasScrewdriver = true
+				pickupTarget.take()
 
 	
 #---------<    CA PATCH DES HOLES PAR ICI    >---------
@@ -132,13 +142,20 @@ func _on_TrapDetection_area_entered(area):
 			$NoBanana.show()
 		else :
 			$Okay.show()
-	#Display the required stuff
-	pass # Replace with function body.
+	elif "Screwdriver" in area.name:
+		if Globals.canUnscrewBarrier == false:
+			$QMark.show()
+		elif Globals.hasScrewdriver == false:
+			$NoScrew.show()
+		else:
+			$Okay.show()
+		canAction = true
+		actionTarget = area
+
 
 
 func _on_TrapDetection_area_exited(area):
-	$NoBanana.hide()
-	$Okay.hide()
+	get_tree().call_group("Prompts","hide")
 	canAction = false
 	pass # Replace with function body.
 

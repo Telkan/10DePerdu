@@ -28,6 +28,11 @@ func _process(delta):
 	else:
 		$AlertHole.hide()
 		
+	if Globals.hasScrewdriver == true:
+		$HasScrew.show()
+	else:
+		$HasScrew.hide()
+		
 	$Money.text = str(Globals.Pognon)+ "$"
 		
 	pass

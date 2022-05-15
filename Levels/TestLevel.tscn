@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Interactables/Doors/Door.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Decors/Boat/Boat.png" type="Texture" id=9]
 [ext_resource path="res://Decors/Boat/Rooms/Underwater.png" type="Texture" id=10]
 [ext_resource path="res://Decors/Boat/Rooms/Top.png" type="Texture" id=11]
-[ext_resource path="res://Decors/Boat/Rooms/Top2.png" type="Texture" id=12]
 [ext_resource path="res://Decors/Sky.png" type="Texture" id=13]
 [ext_resource path="res://Interactables/Trap/Banana/BananaTrap.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Interactables/Trap/Banana/PickupBanana.tscn" type="PackedScene" id=15]
@@ -23,6 +22,9 @@
 [ext_resource path="res://Interactables/Vendeur/Vendeur.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Sounds/MortBateau.wav" type="AudioStream" id=22]
 [ext_resource path="res://MiscAsset/GUI/Alert Hole.png" type="Texture" id=23]
+[ext_resource path="res://Interactables/Trap/Screwdriver/ScrewDriver.tscn" type="PackedScene" id=24]
+[ext_resource path="res://MiscAsset/GUI/ScrewPossessed.png" type="Texture" id=25]
+[ext_resource path="res://Interactables/Trap/Screwdriver/ScrewTrap.tscn" type="PackedScene" id=26]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -111,6 +113,11 @@ color = Color( 0.180392, 0.168627, 0.168627, 1 )
 hue_variation = -0.01
 hue_variation_random = 1.0
 
+[sub_resource type="Curve2D" id=10]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0.254395, -3.44846, 0, 0, 0, 0, 7.39771, -23.291, 0, 0, 0, 0, 14.541, -35.5934, 0, 0, 0, 0, 29.6212, -45.5146, 0, 0, 0, 0, 40.3362, -51.8642, 0, 0, 0, 0, 51.0511, -53.8484, 0, 0, 0, 0, 62.163, -55.039, 0, 0, 0, 0, 73.2748, -52.261, 0, 0, 0, 0, 84.7834, -47.4988, 0, 0, 0, 0, 92.7205, -38.7682, 0, 0, 0, 0, 102.642, -23.6878, 0, 0, 0, 0, 108.594, -10.9886, 0, 0, 0, 0, 116.135, 7.26648, 0, 0, 0, 0, 119.309, 17.5846, 0, 0, 0, 0, 123.675, 40.205, 0, 0, 0, 0, 127.246, 58.857, 0, 0, 0, 0, 132.009, 88.6208, 0, 0, 0, 0, 132.802, 98.542, 0, 0, 0, 0, 133.596, 114.813, 0, 0, 0, 0, 135.183, 129.1, 0, 0, 0, 0, 135.183, 141.799, 0, 0, 0, 0, 135.183, 155.292, 0, 0, 0, 0, 135.58, 171.166, 0, 0, 0, 0, 135.58, 179.103, 0, 0, 0, 0, 136.374, 187.833, 0, 0, 0, 0, 135.183, 196.167 )
+}
+
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -134,7 +141,6 @@ tile_data = PoolIntArray( 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0
 [node name="PassengerNav" type="Navigation2D" parent="Level" groups=[
 "Nav",
 ]]
-visible = false
 __meta__ = {
 "_edit_lock_": true
 }
@@ -144,14 +150,6 @@ tile_set = SubResource( 4 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 0, 2490418, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 851995, 0, 0, 851996, 0, 0, 851997, 0, 0, 851998, 0, 0, 851999, 0, 0, 852000, 0, 0, 852001, 0, 0, 852002, 0, 0, 852003, 0, 0, 852004, 0, 0, 852005, 0, 0, 852006, 0, 0, 852007, 0, 0, 852008, 0, 0, 852009, 0, 0, 852010, 0, 0, 852011, 0, 0, 852012, 0, 0, 852013, 0, 0, 917522, 0, 0, 917523, 0, 0, 983057, 0, 0, 983058, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245212, 0, 0, 1245213, 0, 0, 1245214, 0, 0, 1245215, 0, 0, 1245216, 0, 0, 1245217, 0, 0, 1245218, 0, 0, 1245219, 0, 0, 1245220, 0, 0, 1245221, 0, 0, 1245222, 0, 0, 1245223, 0, 0, 1245224, 0, 0, 1245225, 0, 0, 1245226, 0, 0, 1245227, 0, 0, 1245228, 0, 0, 1245229, 0, 0, 1245230, 0, 0, 1245231, 0, 0, 1245232, 0, 0, 1245233, 0, 0, 1245234, 0, 0, 1245235, 0, 0, 1245236, 0, 0, 1245237, 0, 0, 1245238, 0, 0, 1310738, 0, 0, 1310739, 0, 0, 1310760, 0, 0, 1310761, 0, 0, 1376273, 0, 0, 1376274, 0, 0, 1376297, 0, 0, 1376298, 0, 0, 1441808, 0, 0, 1441809, 0, 0, 1441834, 0, 0, 1441835, 0, 0, 1507343, 0, 0, 1507344, 0, 0, 1507371, 0, 0, 1507372, 0, 0, 1572878, 0, 0, 1572879, 0, 0, 1572908, 0, 0, 1572909, 0, 0, 1638405, 0, 0, 1638406, 0, 0, 1638407, 0, 0, 1638408, 0, 0, 1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0, 1638412, 0, 0, 1638413, 0, 0, 1638414, 0, 0, 1638415, 0, 0, 1638416, 0, 0, 1638417, 0, 0, 1638418, 0, 0, 1638419, 0, 0, 1638420, 0, 0, 1638421, 0, 0, 1638422, 0, 0, 1638423, 0, 0, 1638424, 0, 0, 1638425, 0, 0, 1638426, 0, 0, 1638427, 0, 0, 1638428, 0, 0, 1638429, 0, 0, 1638430, 0, 0, 1638431, 0, 0, 1638432, 0, 0, 1638433, 0, 0, 1638434, 0, 0, 1638435, 0, 0, 1638436, 0, 0, 1638437, 0, 0, 1638438, 0, 0, 1638439, 0, 0, 1638440, 0, 0, 1638441, 0, 0, 1638442, 0, 0, 1638443, 0, 0, 1638444, 0, 0, 1638445, 0, 0, 1638446, 0, 0, 1638447, 0, 0, 1638448, 0, 0, 1638449, 0, 0, 1638450, 0, 0, 1638451, 0, 0, 1638452, 0, 0, 1638453, 0, 0, 1638454, 0, 0 )
-
-[node name="Top2" type="Sprite" parent="Level/PassengerNav/NavMap"]
-position = Vector2( 566.573, 406.541 )
-texture = ExtResource( 12 )
-
-[node name="Top3" type="Sprite" parent="Level/PassengerNav/NavMap"]
-position = Vector2( 399.323, 234.472 )
-texture = ExtResource( 12 )
 
 [node name="Rooms" type="Node2D" parent="Level/PassengerNav"]
 
@@ -198,7 +196,7 @@ position = Vector2( 1654.82, 624.553 )
 [node name="Terrasse" type="Position2D" parent="Level/PassengerNav/Rooms" groups=[
 "Rooms",
 ]]
-position = Vector2( 1398.61, 437.264 )
+position = Vector2( 1446.6, 436.983 )
 
 [node name="Doors" type="Node2D" parent="Level"]
 z_index = 10
@@ -382,9 +380,13 @@ __meta__ = {
 }
 
 [node name="AlertHole" type="Sprite" parent="GUI"]
-position = Vector2( 1882.64, 280.243 )
+position = Vector2( 1873.76, 338.441 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 23 )
+
+[node name="HasScrew" type="Sprite" parent="GUI"]
+position = Vector2( 1876.02, 250.724 )
+texture = ExtResource( 25 )
 
 [node name="MortBateau" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 22 )
@@ -462,5 +464,19 @@ offset = Vector2( -113.817, -14.2107 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="ScrewdriverTrap" type="Node2D" parent="."]
+z_index = 15
+
+[node name="Screwdriver" parent="ScrewdriverTrap" instance=ExtResource( 24 )]
+position = Vector2( 398.892, 940.054 )
+
+[node name="ScrewdriverTrap" parent="ScrewdriverTrap" instance=ExtResource( 26 )]
+position = Vector2( 1449.83, 430.736 )
+fallingPathNode = NodePath("Path2D")
+
+[node name="Path2D" type="Path2D" parent="ScrewdriverTrap/ScrewdriverTrap"]
+visible = false
+curve = SubResource( 10 )
 
 [connection signal="timeout" from="HoleCreator/Timer" to="HoleCreator" method="_on_Timer_timeout"]

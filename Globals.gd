@@ -14,3 +14,5 @@ var canUnscrewBarrier = false
 var hasABanana = false
 
 var canFixHole = false
+
+var hasScrewdriver = false
