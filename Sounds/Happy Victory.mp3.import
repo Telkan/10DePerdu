@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Happy Victory.mp3-913e47db4678bf3b79f8dde5315bceef.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Happy Victory.mp3"
+dest_files=[ "res://.import/Happy Victory.mp3-913e47db4678bf3b79f8dde5315bceef.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

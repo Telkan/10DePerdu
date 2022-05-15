@@ -6,7 +6,7 @@ var timeToNextScreen = 120
 var currentTime = 0
 var Pognon = 0
 var nbOfHoles = 0
-
+var killedPeople = 0
 var SpeedOfRocks = 30
 
 #UNLOCKABLES AND STUFF

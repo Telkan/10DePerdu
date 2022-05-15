@@ -18,7 +18,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Globals.currentTime <= 0:
-		#Victoire lole
+		get_tree().change_scene("res://Levels/EndTripScreen.tscn")
 		pass
 	
 	

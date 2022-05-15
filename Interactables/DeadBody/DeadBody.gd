@@ -11,6 +11,7 @@ func take():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Globals.killedPeople += 1
 	$Sprite/Money.set_emitting(true)
 	$Sprite/Blood.set_emitting(true)
 
