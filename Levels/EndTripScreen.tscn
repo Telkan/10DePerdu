@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Levels/EndTripScreen.gd" type="Script" id=1]
 [ext_resource path="res://Decors/Boat/Boat.png" type="Texture" id=2]
@@ -40,6 +40,12 @@ region_rect = Rect2( 0, 0, 126, 126 )
 [sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 126, 126 )
+
+[sub_resource type="InputEventAction" id=9]
+action = "ui_select"
+
+[sub_resource type="ShortCut" id=10]
+shortcut = SubResource( 9 )
 
 [sub_resource type="ParticlesMaterial" id=8]
 emission_shape = 2
@@ -214,6 +220,7 @@ custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
 custom_styles/normal = SubResource( 7 )
+shortcut = SubResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

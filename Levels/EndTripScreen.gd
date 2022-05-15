@@ -21,4 +21,4 @@ func _ready():
 func _on_Button_pressed():
 	Globals.timeToNextScreen += 60
 	Globals.SpeedOfRocks -= 10
-	get_tree().change_scene("res://Levels/Main.tscn")
+	get_tree().change_scene("res://Levels/game.tscn")
