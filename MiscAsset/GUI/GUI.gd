@@ -34,5 +34,5 @@ func _process(delta):
 		$HasScrew.hide()
 		
 	$Money.text = str(Globals.Pognon)+ "$"
-		
+	$Time.text = str(Globals.currentTime)+ "M"	
 	pass

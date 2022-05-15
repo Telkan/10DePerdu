@@ -57,7 +57,7 @@ margin_right = 39.4295
 margin_bottom = -42.5861
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 1, 0.0588235, 1 )
-text = "40$"
+text = "60$"
 __meta__ = {
 "_edit_use_anchors_": false
 }

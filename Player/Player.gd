@@ -100,10 +100,10 @@ func _physics_process(delta):
 				if Globals.canFixHole == false:
 					Globals.canFixHole = true
 					pickupTarget.take()
-			elif "Vendeur" in pickupTarget.name and Globals.Pognon >=40:
+			elif "Vendeur" in pickupTarget.name and Globals.Pognon >=60:
 				Globals.canUnscrewBarrier = true
 				pickupTarget.take()
-				Globals.Pognon -= 40
+				Globals.Pognon -= 60
 				get_parent().find_node("ScrewdriverTrap").find_node("Screwdriver").setup()
 			elif "Screwdriver" in pickupTarget.name  and pickupTarget.empty == false:
 				Globals.hasScrewdriver = true
