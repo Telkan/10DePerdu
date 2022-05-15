@@ -13,6 +13,7 @@ config_version=4
 config/name="10% de Perdus!"
 run/main_scene="res://Levels/Main.tscn"
 config/icon="res://MiscAsset/Icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
