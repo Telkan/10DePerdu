@@ -48,11 +48,11 @@ region_rect = Rect2( 0, 0, 126, 126 )
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 126, 126 )
 
-[sub_resource type="InputEventAction" id=9]
+[sub_resource type="InputEventAction" id=19]
 action = "ui_select"
 
 [sub_resource type="ShortCut" id=18]
-shortcut = SubResource( 9 )
+shortcut = SubResource( 19 )
 
 [node name="Main Menu" type="Node2D"]
 script = ExtResource( 7 )
