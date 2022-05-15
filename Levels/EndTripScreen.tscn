@@ -41,11 +41,11 @@ region_rect = Rect2( 0, 0, 126, 126 )
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 126, 126 )
 
-[sub_resource type="InputEventAction" id=9]
+[sub_resource type="InputEventAction" id=11]
 action = "ui_select"
 
 [sub_resource type="ShortCut" id=10]
-shortcut = SubResource( 9 )
+shortcut = SubResource( 11 )
 
 [sub_resource type="ParticlesMaterial" id=8]
 emission_shape = 2
